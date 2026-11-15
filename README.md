@@ -16,8 +16,8 @@ in the lecture, once the manual build has shown why it is needed.
 
 ```
 riscv64-unknown-elf-as  -march=rv32im_zicsr -mabi=ilp32 startup.s -o startup.o
-riscv64-unknown-elf-gcc -march=rv32im_zicsr -mabi=ilp32 -O0 -Wall -ffreestanding -Iuart -c main.c -o main.o
-riscv64-unknown-elf-gcc -march=rv32im_zicsr -mabi=ilp32 -O0 -Wall -ffreestanding -c uart/uart.c -o uart.o
+riscv64-unknown-elf-gcc -march=rv32im_zicsr -mabi=ilp32 -O0 -Wall -Iuart -c main.c -o main.o
+riscv64-unknown-elf-gcc -march=rv32im_zicsr -mabi=ilp32 -O0 -Wall -c uart/uart.c -o uart.o
 riscv64-unknown-elf-ld  -m elf32lriscv -T linker.ld --no-relax -Map=app.map startup.o main.o uart.o -o app.elf
 ```
 
